@@ -1,0 +1,27 @@
+name: Test
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Check if tests directory exists
+        id: check_tests
+        run: |
+          if [ -d "tests" ]; then
+            echo "Tests directory exists."
+            echo "::set-output name=exists::true"
+          else
+            echo "Tests directory does not exist."
+            echo "::set-output name=exists::false"
+          fi
+
+      - name: Run tests
+        if: steps.check_tests.outputs.exists == 'true'
+        run: |
+          pip install pytest
+          pytest tests/
