@@ -12,7 +12,7 @@ RUN pip install -r requirements.txt
 COPY . .
 
 # Expondo a porta 3000
-EXPOSE 3000
+EXPOSE 5000
 
 # Executando o codigo
 CMD ["python", "app.py"]
