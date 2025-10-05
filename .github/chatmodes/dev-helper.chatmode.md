@@ -7,7 +7,13 @@ tools: [
     'runTests',
     'search',
     'terminalLastCommand',
-    'testFailure'
+    'testFailure',
+    'runCommands',
+    'explainCode',
+    'improveCode',
+    'refactorCode',
+    'addTests',
+    'codebase'
 ]
 ---
 
